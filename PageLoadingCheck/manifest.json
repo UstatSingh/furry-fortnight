@@ -1,0 +1,28 @@
+/*  Copyright 2017 Ustat Singh
+ * This file is subject to the terms and conditions defined in
+ * file 'LICENSE.txt', which is part of this source code package.
+ */
+
+
+{
+  "name": "Site Load Complete Check",
+  "description": "Check to see when the current page load is complete",
+  "version": "1.0",
+  "permissions": [
+     "<all_urls>","webRequest","activeTab","tabs", "webNavigation"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts":[{
+    "matches" : ["<all_urls>"],
+    "js": ["SiteLoadTrigger.js"],
+    "all_frames": true
+  }],
+  "browser_action": {
+    "default_title": "Check if page loaded",
+    "default_icon": "icon.png"
+  },
+  "manifest_version": 2
+}
+
